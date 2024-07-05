@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="calc.css"> -->
+    <script src="https://kit.fontawesome.com/dc6622bbd5.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(255, 221, 0);
+            
+        }
+        .title{
+            color: rgb(255, 221, 0);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .main .calc{
+            height: 500px;
+            width:400px;
+            
+        }
+        .input{
+            width: 360px;
+            height: 50px;
+            margin: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+        td{
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 4px;
+        }
+        td:hover{
+            background-color: grey;
+        }
+        td:not(#inputbox){
+            cursor: pointer;
+            border: none;
+        }
+        .main{
+            height: 570px;
+            width:350px;
+            background-color: black;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        #inputbox{
+            background-color: white;
+            color: black;
+            text-align: right;
+            border-radius: 5px;
+        }
+        table{
+            border: none;
+        }
+        .calculate{
+            background-color:rgb(255, 221, 0) ;
+            color: black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="title">Basic Calculator</h1>
+    <table border="1" cellspacing="15" cellpadding="22" >
+        <tr>
+            <td colspan="3" id="inputbox"></td>
+            <td onclick="clearall()">AC</td>
+        </tr>
+        <tr>
+            <td onclick="push_num('%')">%</td>
+            <td onclick="push_num('**2')">x <sup>2</sup></td>
+            <td onclick="sq_root()">sqrt</td>
+            <td onclick="push_num('<')"><i class="fa-solid fa-delete-left"></i></td>
+        </tr>
+        <tr>
+            <td onclick="push_num('1')">1</td>
+            <td onclick="push_num('2')">2</td>
+            <td onclick="push_num('3')">3</td>
+            <td onclick="push_num('/')">/</td>
+        </tr>
+        <tr>
+            <td onclick="push_num('4')">4</td>
+            <td onclick="push_num('5')">5</td>
+            <td onclick="push_num('6')">6</td>
+            <td onclick="push_num('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="push_num('7')">7</td>
+            <td onclick="push_num('8')">8</td>
+            <td onclick="push_num('9')">9</td>
+            <td onclick="push_num('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="push_num('0')">0</td>
+            <td onclick="push_num('.')">.</td>
+            <td onclick="push_num('+')">+</td>
+            <td onclick="push_num('=')" class="calculate">=</td>
+        </tr>
+    </table>
+    </div>
+    <script>
+        var res=document.getElementById("inputbox")
+        var s=""
+        function push_num(val){
+            if(val=='<')
+            {
+                s=s.slice(0,s.length-1)
+            }   
+            else if(val=='=')
+            {
+                s=(eval(s)).toString()
+            }
+            else{
+                s+=val;
+            }
+            res.innerHTML=s;
+            console.log(typeof s)
+
+        }
+        function clearall(){
+            s=''
+            res.innerHTML=s
+        }
+        function sq_root(){
+            s=Math.sqrt(s)
+            res.innerHTML=s
+        }
+    </script>
+</body>
+</html>

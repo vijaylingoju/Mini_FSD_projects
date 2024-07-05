@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            justify-content: center ;
+            display: flex;
+            align-items: center;
+            margin: 0px;
+            padding: 0%;
+            /* background-image: linear-gradient(rgb(207, 254, 251),rgb(1, 75, 70)); */
+            background: linear-gradient(135deg,darkviolet,blue);
+        }
+        *{
+            border-radius: 20px;
+        }
+        .div1{
+            flex-direction: row;
+            gap: 35px;
+            justify-content: center ;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+        }
+        .div2{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        img{
+            width: 140px;
+            height: 120px;
+            border: 3px solid black;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        img:hover{
+            transform: scale(1.05);
+        }
+        .div3{
+            display: flex;
+            width: 570px;
+            height: 385px;
+            border: 3px solid black;
+            background-size:cover;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">
+            <img src="./images/1.jpg" onmouseover="img('1')">
+            <img src="./images/2.jpg" onmouseover="img('2')">
+            <img src="./images/3.jpg" onmouseover="img('3')">
+        </div>
+        <div class="div3">
+            Image Preview
+        </div>
+        <div class="div2">
+            <img src="./images/4.jpg" onmouseover="img('4')">
+            <img src="./images/5.jpg" onmouseover="img('5')">
+            <img src="./images/6.jpg" onouseover="img('6')">
+        </div>
+    </div>
+    <script>
+        function img(v){
+            document.getElementsByClassName("div3")[0].style.backgroundImage= "url('./images/"+v+".jpg')";
+            document.getElementsByClassName("div3")[0].innerText="";
+        }
+        
+    </script>
+</body>
+
+</html>
